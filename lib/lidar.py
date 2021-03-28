@@ -47,15 +47,17 @@ class LIDAR:
         utime.sleep_ms(500)
 
     def set_min_max(self, min, max):
-        min_hex = int("0x%X" % (min * 10))
-        high, low  = divmod(min_hex, 0x100)
+        min *= 10
+        max *= 10
+        
+        high, low  = min >> 8, min & 0XFF
         self.i2c.writeto_mem(self.addr, const.MIN_DIST_HIGH, high)
         self.i2c.writeto_mem(self.addr, const.MIN_DIST_LOW, low)
 
-        max_hex = int("0x%X" % (max * 10))
-        high, low = divmod(max_hex, 0x100)
+        high, low  = max >> 8, max & 0XFF
         self.i2c.writeto_mem(self.addr, const.MAX_DIST_HIGH, high)
         self.i2c.writeto_mem(self.addr, const.MAX_DIST_LOW, low)
+        utime.sleep_ms(50)
 
         self.save()
         self.reboot()
