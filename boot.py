@@ -17,9 +17,10 @@ if LIDAR_ADDRESS not in slaves:
 
 lidar_0 = LIDAR(i2c_0, LIDAR_ADDRESS)
 
-while(True):
-    s0 = lidar_0.get_distance()
-    t0 = lidar_0.get_temp()
-    a0 = lidar_0.get_signal_amp()
-    print(s0, t0, a0)
-    utime.sleep_ms(20)
+# Output limit when out of range
+# This case, output only when between 20cm and 150cm
+lidar_0.set_min_max(20, 150)
+
+
+while True:
+    print(lidar_0.verbose())

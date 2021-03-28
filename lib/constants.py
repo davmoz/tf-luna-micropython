@@ -22,4 +22,8 @@ LOW_POWER =                 0x28    # Default: 0x00, Normal: 0x00, Power saving 
 RESTORE_FACTORY_DEFAULTS =  0x29    # Write 0x01 to restore factory default settings
 AMP_THR_LOW =               0x2A    # Default: 0x64, Amp threshold value
 MIN_DIST_LOW =              0x2E    # Default: 0x00, Minimum dist in cm, but not working on DUMMY_DIST
+MIN_DIST_HIGH =             0x2F
 MAX_DIST_LOW =              0x30    # Default: 0x20, Maximum dist in cm, but not working on DUMMY_DIST
+MAX_DIST_HIGH =             0x31
+
+MAX_RANGE  =                0x2003 # 2 bytes, 8195mm
