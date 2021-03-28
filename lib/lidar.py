@@ -1,7 +1,6 @@
 import struct, utime
 import constants as const
-import binascii
-import re
+
 class LIDAR:
     """docstring for LIDAR."""
 

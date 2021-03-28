@@ -1,5 +1,5 @@
 from machine import I2C
-import struct, utime
+import utime
 import sys
 from lib.lidar import LIDAR
 
