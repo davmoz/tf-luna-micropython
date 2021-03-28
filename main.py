@@ -23,4 +23,5 @@ lidar_0.set_min_max(20, 150)
 
 
 while True:
-    print(lidar_0.verbose())
+    print(lidar_0.distance())
+    utime.sleep_ms(10)
