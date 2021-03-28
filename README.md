@@ -3,6 +3,11 @@ A simple micropython i2c library for TF-Luna LiDAR Module.
 
 ## Getting started
 
+To enable i2c, connect pin 5 to GND, see [Datasheet](https://www.robotshop.com/media/files/content/b/ben/pdf/tf-luna-8m-lidar-distance-sensor-instructions-manual.pdf)
+
+To run main.py, connect RXD/SDA to P7 and TXD/SCL to P8
+
+
 | Pin & Function        | Description        |
 | --------------------- | ------------------ |
 | 1 VCC                 | Vin (5V)           |     
@@ -12,9 +17,6 @@ A simple micropython i2c library for TF-Luna LiDAR Module.
 | 5 Configuration Input | Ground: I2C mode <br />/3.3V: Serial port <br />Communications mode |     
 | 6 Multiplexing output | Default: on/off mode output<br />I2C mode: Data availability<br />signal on but not switching value mode     |     
 
-To enable i2c, connect pin 5 to GND, see [Datasheet](https://www.robotshop.com/media/files/content/b/ben/pdf/tf-luna-8m-lidar-distance-sensor-instructions-manual.pdf)
-
-To run main.py, connect RXD/SDA to P7 and TXD/SCL to P8
 
 ## Implemented functions 
 * Distance
