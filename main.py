@@ -16,12 +16,13 @@ if LIDAR_ADDRESS not in slaves:
 
 
 lidar = LIDAR(i2c_0, LIDAR_ADDRESS)
+print(lidar.version_rev())
 
 # Output limit when out of range
 # Output only when between 20cm and 150cm (Up to 800cm)
 lidar.set_min_max(20, 150)
-print(lidar.version_rev())
 
+lidar.set_frequency(250)
 
 while True:
     print(lidar.distance())

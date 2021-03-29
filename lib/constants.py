@@ -19,6 +19,7 @@ MODE =                      0x23    # Default: 0x00 | Continuous ranging mode: 0
 TRIG_ONE_SHOT =             0x24    # 0x01: Trigger once (only on trigger mode)
 ENABLE =                    0x25    # Turn on LiDAR: 0x00, Turn off LiDAR: 0x01
 FPS_LOW =                   0x26    # Default: 0x64 100Hz, 0xFA 250Hz
+FPS_HIGH =                  0x27
 LOW_POWER =                 0x28    # Default: 0x00, Normal: 0x00, Power saving mode: 0x01
 RESTORE_FACTORY_DEFAULTS =  0x29    # Write 0x01 to restore factory default settings
 AMP_THR_LOW =               0x2A    # Default: 0x64, Amp threshold value

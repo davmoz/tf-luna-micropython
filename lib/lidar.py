@@ -8,12 +8,21 @@ class LIDAR:
         self.i2c = i2c
         self.addr = addr
 
+    def addr(self):
+        return self.addr,
+
     def save(self):
         self.i2c.writeto_mem(self.addr, const.SAVE, 0x01)
         utime.sleep_ms(100)
 
-    def addr(self):
-        return self.addr,
+    def reboot(self):
+        self.i2c.writeto_mem(self.addr, const.SHUTDOWN_REBOOT, 0x02)
+
+    def _save_reboot(self):
+        utime.sleep_ms(50)
+        self.save()
+        self.reboot()
+        utime.sleep_ms(500)
 
     def distance(self):
         dist = self.i2c.readfrom_mem(self.addr, 0x00, 2)
@@ -32,14 +41,12 @@ class LIDAR:
         return 'LiDAR Version {}.{}.{}'.format(v[2], v[1], v[0])
 
     def set_frequency(self, freq=0x64):
-        self.i2c.writeto_mem(self.addr, 0x26, freq)
+        self.i2c.writeto_mem(self.addr, const.FPS_LOW, freq)
+        self._save_reboot()
 
     def power_saving_mode(self, power_saving_mode=True):
         val = 0x01 if power_saving_mode else 0x00
         self.i2c.writeto_mem(self.addr, const.LOW_POWER, val)
-
-    def reboot(self):
-        self.i2c.writeto_mem(self.addr, const.SHUTDOWN_REBOOT, 0x02)
 
     def on_off(self, on=True):
         val = 0x00 if on else 0x01
@@ -47,8 +54,7 @@ class LIDAR:
 
     def reset(self):
         self.i2c.writeto_mem(self.addr, const.RESTORE_FACTORY_DEFAULTS, 0x01)
-        self.reboot()
-        utime.sleep_ms(500)
+        self._save_reboot()
 
     def set_min_max(self, min, max):
         min *= 10
@@ -61,13 +67,9 @@ class LIDAR:
         high, low  = max >> 8, max & 0XFF
         self.i2c.writeto_mem(self.addr, const.MAX_DIST_HIGH, high)
         self.i2c.writeto_mem(self.addr, const.MAX_DIST_LOW, low)
-        utime.sleep_ms(50)
+        self._save_reboot()
 
-        self.save()
-        self.reboot()
-        utime.sleep_ms(500)
-
-    def verbose(self):
+    def read_all(self):
         return 'Distance {}, ChipTemp {}, SignalAmp {}'.format(
         self.distance(),
         self.temp(),
