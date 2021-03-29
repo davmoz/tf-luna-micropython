@@ -1,5 +1,5 @@
 # tf-luna
-A simple micropython i2c library for TF-Luna LiDAR Module. 
+A simple micropython i2c library for TF-Luna LiDAR Module.
 
 ## Getting started
 
@@ -18,7 +18,7 @@ To run main.py, connect RXD/SDA to P7 and TXD/SCL to P8
 | 6 Multiplexing output | Default: on/off mode output<br />I2C mode: Data availability<br />signal on but not switching value mode     |     
 
 
-## Implemented functions 
+## Implemented functions
 * Distance
 * Chip temperature
 * Signal Amplitude
@@ -31,7 +31,6 @@ To run main.py, connect RXD/SDA to P7 and TXD/SCL to P8
 * Trigger
 * Sleep
 * Change slave address
+* Tick
+* Error
 * UART
-
-
-
