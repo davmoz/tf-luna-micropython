@@ -1,7 +1,7 @@
 # tf-luna
 A simple micropython i2c library for TF-Luna LiDAR Module.
 
-**Repo-status**: In progress, see [Implemented functions](#implemented-functions)
+**Repo-status**: See [Implemented functions](#implemented-functions)
 
 ## Getting started
 
