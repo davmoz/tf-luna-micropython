@@ -14,13 +14,15 @@ if LIDAR_ADDRESS not in slaves:
     print('Bus error: Please check LIDAR wiring')
     sys.exit()
 
-lidar_0 = LIDAR(i2c_0, LIDAR_ADDRESS)
+
+lidar = LIDAR(i2c_0, LIDAR_ADDRESS)
 
 # Output limit when out of range
 # Output only when between 20cm and 150cm (Up to 800cm)
-lidar_0.set_min_max(20, 150)
+lidar.set_min_max(20, 150)
+print(lidar.version_rev())
 
 
 while True:
-    print(lidar_0.distance())
-    utime.sleep_ms(50)
+    print(lidar.distance())
+    utime.sleep_ms(10)
