@@ -1,6 +1,8 @@
 # tf-luna
 A simple micropython i2c library for TF-Luna LiDAR Module.
 
+Status: In progress, see [Implemented functions](#implemented-functions)
+
 ## Getting started
 
 To enable i2c, connect pin 5 to GND, see [Datasheet](https://www.robotshop.com/media/files/content/b/ben/pdf/tf-luna-8m-lidar-distance-sensor-instructions-manual.pdf)
