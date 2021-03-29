@@ -25,11 +25,11 @@ To run main.py, connect RXD/SDA to P7 and TXD/SCL to P8
 * Set Min/Max range
 * Reboot
 * Reset to factory defaults
+* Change sampling rate / freq
 
 ## To do
 * Trigger
 * Sleep
-* Change sampling rate / freq
 * Change slave address
 * UART
 
