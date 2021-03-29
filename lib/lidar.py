@@ -42,7 +42,7 @@ class LIDAR:
         temp = self._read(const.TEMP_LOW, 2)
         return int(struct.unpack('<H', temp)[0]) * 0.01
 
-    def version_rev(self):
+    def version(self):
         v = self._read(const.VERSION_REVISION, 3)
         return 'LiDAR Version {}.{}.{}'.format(v[2], v[1], v[0])
 
