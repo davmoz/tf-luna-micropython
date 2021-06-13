@@ -29,7 +29,7 @@ To run main.py, connect RXD/SDA to P7 and TXD/SCL to P8
 * Reset to factory defaults
 * Change sampling rate / freq
 
-## To do
+## To-Do
 * Trigger mode
 * Change slave address
 * Tick
