@@ -15,7 +15,7 @@ class LIDAR:
         return self.i2c.readfrom_mem(self.addr, addr, bytes)
 
     def _write(self, addr, value):
-        self.i2c.writeto_mem(self.addr, addr, value)
+        self.i2c.writeto_mem(self.addr, addr, bytes([value]))
 
     def save(self):
         self._write(const.SAVE, 0x01)
