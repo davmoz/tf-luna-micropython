@@ -1,5 +1,12 @@
-import struct, utime
-import constants as const
+import struct
+try:
+    import utime as time
+except ImportError:
+    import time
+try:
+    from . import constants as const
+except ImportError:
+    import constants as const
 
 class LIDAR:
     '''docstring for LIDAR.'''
@@ -19,16 +26,16 @@ class LIDAR:
 
     def save(self):
         self._write(const.SAVE, 0x01)
-        utime.sleep_ms(100)
+        time.sleep_ms(100)
 
     def reboot(self):
-        utime.sleep_ms(50)
+        time.sleep_ms(50)
         self.save()
         self._write(const.SHUTDOWN_REBOOT, 0x02)
 
     def _save_reboot(self):
         self.reboot()
-        utime.sleep_ms(500)
+        time.sleep_ms(500)
 
     def distance(self):
         dist = self._read(const.DIST_LOW, 2)
