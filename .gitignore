@@ -1,0 +1,18 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# MicroPython compiled files
+*.mpy
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
