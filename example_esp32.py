@@ -15,6 +15,7 @@ Wiring for TF-Luna:
 
 from machine import I2C, Pin
 import time
+import sys
 from lib.lidar import LIDAR
 
 # TF-Luna has the default slave_address 0x10
@@ -41,7 +42,6 @@ if LIDAR_ADDRESS not in slaves:
     print('2. Verify SDA is connected to GPIO{}'.format(SDA_PIN))
     print('3. Verify SCL is connected to GPIO{}'.format(SCL_PIN))
     print('4. Check power supply (VCC to 5V, GND to GND)')
-    import sys
     sys.exit()
 
 # Initialize LIDAR

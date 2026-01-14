@@ -16,6 +16,7 @@ MicroPython firmware on your board first.
 
 from machine import I2C, Pin
 import time
+import sys
 from lib.lidar import LIDAR
 
 # TF-Luna has the default slave_address 0x10
@@ -41,7 +42,6 @@ print(f"I2C devices found: {[hex(addr) for addr in slaves]}")
 if LIDAR_ADDRESS not in slaves:
     print('Bus error: Please check LIDAR wiring')
     print('Expected device address: 0x{:02x}'.format(LIDAR_ADDRESS))
-    import sys
     sys.exit()
 
 # Initialize LIDAR
